@@ -1,0 +1,58 @@
+.discount {
+  /* background-color: green; */
+  border-left: 10px solid rgb(230, 43, 74);
+  border-right: 10px solid rgb(230, 43, 74);
+  max-width: 80%;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+.discount h3 {
+  text-align: right;
+  /* animation: transform 40s infinite; */
+}
+
+@keyframes transform {
+  0% {
+    transform: translateX(70%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+nav {
+  background-color: pink;
+  display: flex;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  list-style-type: none;
+  font-size: 18px;
+}
+
+nav ul li:first-child {
+  background-color: rgb(230, 43, 74);
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 0.3rem 0.5rem;
+  font-weight: bold;
+}
+
+button {
+  display: flex;
+  border: none;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 25px;
+}
+
+.icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  margin-right: 0.5rem;
+}
