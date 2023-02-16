@@ -1,7 +1,6 @@
 .shop-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  /* grid-template-rows: 400px; */
   gap: 20px;
 }
 
@@ -55,20 +54,37 @@ button .iconz {
 
 .item-container button:active {
   background-color: rgb(230, 43, 74);
-  /* background-color: red; */
 }
 
-/* .item-container:hover {
-}
+@media screen and (max-width: 600px) {
+  .shop-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
 
-.item-container::before,
-.item-container::after {
-  content: "";
-  position: absolute;
-}
+  .item-container {
+    padding: 0.5rem;
+    width: 200px;
+    height: 200px;
+    position: relative;
+  }
 
-.item-container::before {
-}
+  .item-container img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: fill;
+  }
 
-.item-container::after {
-} */
+  .item-container h2 {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .item-container button {
+    position: absolute;
+    bottom: 8%;
+    font-size: 12px;
+  }
+}

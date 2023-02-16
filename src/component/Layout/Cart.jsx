@@ -1,43 +1,38 @@
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { cartActions } from "../../store/CartSlice";
 
-import Cancel from "./CancelSvg";
 import styles from "./cart.module.css";
 
 function CartPage(props) {
-  const { title, quantity, imagez, price } = props.item;
+  const selector = useSelector((state) => state.cart.items);
+  const { id, title, quantity, imagez, price } = props.item;
 
-  const [cancelCart, setCancelCart] = useState(true);
+  const dispatch = useDispatch();
 
-  function cancelHandler() {
-    setCancelCart(false);
+  function removeItemHandler() {
+    dispatch(cartActions.itemDecreased(id));
   }
 
+  function addItemHandler() {
+    dispatch(cartActions.itemOrdered({ id, title, imagez, price }));
+  }
   return (
     <div>
       <div>
-        <div className={styles["cart-cancel"]}>
-          <button onClick={cancelHandler}>
-            <Cancel />
-          </button>
-        </div>
         <div className={styles["cart-item"]}>
-          <h3> Cart Items</h3>
-          {/* <p>
-            Cart Empty <br />
-            add items to cart
-          </p> */}
           <li>
             <img src={imagez} />
             <div className={styles["items-info"]}>
               <div>
                 <h3>
-                  {title}. ${price}
+                  <span className={styles["item-price"]}>{title}.</span> $
+                  {price}
                 </h3>
               </div>
               <div className={styles.actions}>
-                <button> - </button>
+                <button onClick={removeItemHandler}> - </button>
                 <p> {quantity} </p>
-                <button>+</button>
+                <button onClick={addItemHandler}>+</button>
               </div>
             </div>
           </li>
@@ -48,19 +43,3 @@ function CartPage(props) {
 }
 
 export default CartPage;
-
-{
-  /* <li>
-  <img src={require("../wigPictures/wig-1.png")} />
-  <div className={styles["items-info"]}>
-    <div>
-      <h3> Brazillian Wig. ($114)</h3>
-    </div>
-    <div className={styles.actions}>
-      <button> - </button>
-      <p> 0 </p>
-      <button>+</button>
-    </div>
-  </div>
-</li> */
-}

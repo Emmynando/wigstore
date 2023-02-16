@@ -3,17 +3,17 @@ import CartIcon from "./cartIcon";
 import { uiActions } from "../../store/uiSlice";
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./NavBar.module.css";
-// import { useRef } from "react";
+import { useRef } from "react";
 
 function Navbar() {
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
   const dispatch = useDispatch();
-  // const selectorRef = useRef();
+  const selectorRef = useRef();
 
-  // function mountRect() {
-  //   const rect = selectorRef.current?.getBoundingClientRect();
-  //   console.log(rect);
-  // }
+  function mountRect() {
+    const rect = selectorRef.current?.getBoundingClientRect();
+    console.log(rect);
+  }
 
   const cartToggleHandler = () => {
     dispatch(uiActions.toggle());

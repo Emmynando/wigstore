@@ -3,11 +3,18 @@
   background-color: pink;
   border-radius: 20px;
   right: 1%;
-  top: 10%;
+  top: 8.5%;
   padding: 1rem;
   width: 30rem;
   height: 80vh;
+  overflow-y: auto;
   z-index: 1;
+}
+
+.cart-container .p {
+  font-size: larger;
+  text-align: center;
+  margin: 30% auto;
 }
 
 .cart-cancel button {
@@ -18,21 +25,24 @@
 }
 
 .cart-item {
-  border: 1px dotted black;
-  position: sticky;
   text-align: center;
   margin-top: 10%;
 }
 
+.cart-item h3 {
+  font-size: 14px;
+  text-align: center;
+}
+
 .cart-container::before {
   content: "";
-  background-color: pink;
+  background-color: rgb(230, 43, 74);
   border-radius: 50%;
   display: block;
   width: 50px;
   height: 50px;
-  top: -1%;
-  left: 35%;
+  top: -2.8%;
+  left: 23%;
   position: absolute;
   z-index: -2;
 }
@@ -73,4 +83,48 @@
 .actions p {
   text-align: center;
   font-size: large;
+}
+
+@media screen and (max-width: 600px) {
+  .cart-container {
+    position: absolute;
+    right: 0;
+    left: 22%;
+    top: 8%;
+    padding: 1rem;
+    width: 20rem;
+    height: 80vh;
+    overflow-y: auto;
+    z-index: 1;
+  }
+
+  .cart-item h3 {
+    font-size: 12px;
+    text-align: center;
+    font-weight: bolder;
+  }
+
+  .items-info .item-price {
+    font-weight: bold;
+  }
+  .cart-container::before {
+    content: "";
+    background-color: rgb(230, 43, 74);
+    border-radius: 50%;
+    display: block;
+    width: 50px;
+    height: 50px;
+    top: -5%;
+    left: 35%;
+    position: absolute;
+    z-index: -2;
+  }
+
+  .actions button {
+    width: 30px;
+    height: 30px;
+    font-size: large;
+    border: 1px solid rgb(230, 43, 74);
+    margin-left: 3px;
+  }
 }

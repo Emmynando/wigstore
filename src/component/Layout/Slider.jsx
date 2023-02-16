@@ -21,16 +21,16 @@ const DATA = [
 function Slider() {
   const [imageIndex, setImageIndex] = useState(0);
 
-  // useEffect(() => {
-  //   const timeout = setTimeout(() => {
-  //     if (imageIndex >= 3) {
-  //       return setImageIndex(0);
-  //     }
-  //     setImageIndex(imageIndex + 1);
-  //   }, 5000);
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (imageIndex >= 3) {
+        return setImageIndex(0);
+      }
+      setImageIndex(imageIndex + 1);
+    }, 5000);
 
-  //   return () => clearTimeout(timeout);
-  // }, [imageIndex]);
+    return () => clearTimeout(timeout);
+  }, [imageIndex]);
 
   return (
     <>
@@ -38,7 +38,7 @@ function Slider() {
         {DATA.filter((item) => Number(item.id) - 1 === imageIndex).map(
           (image) => (
             <div key={image.id} className={styles.images}>
-              <img src={image.imagez} />
+              <img src={image.imagez} alt="" />
             </div>
           )
         )}

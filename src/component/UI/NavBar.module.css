@@ -1,5 +1,4 @@
 .discount {
-  /* background-color: green; */
   border-left: 10px solid rgb(230, 43, 74);
   border-right: 10px solid rgb(230, 43, 74);
   max-width: 80%;
@@ -9,7 +8,7 @@
 
 .discount h3 {
   text-align: right;
-  /* animation: transform 40s infinite; */
+  animation: transform 40s infinite;
 }
 
 @keyframes transform {
@@ -55,4 +54,15 @@ button {
   width: 1.35rem;
   height: 1.35rem;
   margin-right: 0.5rem;
+}
+
+@media screen and (max-width: 600px) {
+  .discount {
+    max-height: 10%;
+  }
+
+  .discount h3 {
+    font-size: 14px;
+    white-space: nowrap;
+  }
 }

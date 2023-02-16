@@ -11,55 +11,38 @@ const cartSlice = createSlice({
   initialState: initialCartState,
   reducers: {
     itemOrdered(state, action) {
+      const newItem = action.payload;
       state.totalQuantity++;
       state.totalAmount = state.totalAmount + state.items.price;
       const existingItem = state.items.find(
         (item) => item.id === action.payload.id
       );
-      if (existingItem) {
-        const addedItem = state.items.map((item) => {
-          let newQty = item.quantity + action.payload.quantity;
-          let newPrice = item.price * newQty;
-          return { ...item, price: newPrice, quantity: newQty };
-        });
-        state.items = addedItem;
-        // }
-      } else {
+      if (!existingItem) {
         state.items.push({
-          id: action.payload.id,
-          tile: action.payload.tile,
-          imagez: action.payload.images,
-          price: action.payload.price,
+          id: newItem.id,
+          title: newItem.title,
+          imagez: newItem.imagez,
+          price: newItem.price,
+          totalPrice: newItem.price,
           quantity: 1,
         });
+      } else {
+        existingItem.quantity++;
+        existingItem.price = existingItem.price + newItem.price;
       }
-      // state.items.push({
-      //   id: newItem.id,
-      //   title: newItem.title,
-      //   imagez: newItem.imagez,
-      //   price: newItem.price,
-      //   quantity: 1,
-      // });
-      // } else {
-      //   existingItem.quantity++;
-      //   existingItem.totalAmount = existingItem.totalAmount + newItem.price;
-      // }
     },
-    // itemDecreased(state, action) {
-    //   state.totalAmount = state.totalAmount - action.payload;
-    //   state.totalQuantity--;
-    //   const newId = action.payload;
-    //   const existingItem = state.item.find((item) => item.id === newId.id);
-    //   if (existingItem === 1) {
-    //     state.item = state.item.filter((item) => item !== newId);
-    //   } else {
-    //     existingItem.quantity--;
-    //     existingItem.price = state.price - existingItem.price;
-    // existingItem.quantity--;
-    // existingItem.totalAmount =
-    //   existingItem.totalAmount - existingItem.price;
-    //   }
-    // },
+    itemDecreased(state, action) {
+      const id = action.payload;
+      state.totalAmount = state.totalAmount - action.payload;
+      state.totalQuantity--;
+      const existingItem = state.items.find((item) => item.id === id);
+      if (existingItem.quantity === 1) {
+        state.items = state.items.filter((item) => item.id !== id);
+      } else {
+        existingItem.quantity--;
+        existingItem.price = existingItem.price - existingItem.totalPrice;
+      }
+    },
   },
 });
 
