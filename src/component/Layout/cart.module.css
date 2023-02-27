@@ -128,3 +128,29 @@
     margin-left: 3px;
   }
 }
+
+.cart-container .check-out {
+  background-color: rgb(230, 43, 74);
+  box-shadow: 0 2px 6px 2px rgb(0, 0, 0, 0.28);
+  color: white;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+}
+
+.cart-container .flexButton {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.cart-container .check-out:active {
+  background-color: pink;
+}
+
+.cart-container .clear-cart {
+  background-color: black;
+  box-shadow: 0 2px 6px 2px rgba(248, 230, 230, 0.28);
+  color: aliceblue;
+  font-size: 12px;
+  margin-top: 0.5rem;
+  padding: 0.3rem;
+}

@@ -1,18 +1,20 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { cartActions } from "../../store/CartSlice";
 
 import styles from "./cart.module.css";
 
 function CartPage(props) {
-  const selector = useSelector((state) => state.cart.items);
+  // const selector = useSelector((state) => state.cart.items);
   const { id, title, quantity, imagez, price } = props.item;
 
   const dispatch = useDispatch();
 
+  // removing items rom cart using item id
   function removeItemHandler() {
     dispatch(cartActions.itemDecreased(id));
   }
 
+  // adding items to cart using the props key
   function addItemHandler() {
     dispatch(cartActions.itemOrdered({ id, title, imagez, price }));
   }

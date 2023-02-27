@@ -27,7 +27,7 @@
 }
 
 .former {
-  color: red;
+  color: rgb(245, 229, 229);
   text-decoration: line-through;
   text-decoration-thickness: 2px;
 }

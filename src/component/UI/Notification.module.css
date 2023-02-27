@@ -1,0 +1,10 @@
+.notif {
+  background-color: antiquewhite;
+  /* background-color: green; */
+  border-radius: 20px;
+  position: fixed;
+  top: 60%;
+  left: 50%;
+  margin: auto;
+  padding: 1rem;
+}

@@ -1,18 +1,35 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { cartActions } from "../../store/CartSlice";
 import Cancel from "./CancelSvg";
 
 import CartPage from "./Cart";
 import styles from "./cart.module.css";
+import { uiActions } from "../../store/uiSlice";
 
 function CartItems() {
   const cartSelector = useSelector((state) => state.cart.items);
+  const dispatch = useDispatch();
   const emptyCart = cartSelector.length === 0;
 
+  // rendring cart state
   const [cancelCart, setCancelCart] = useState(true);
 
+  // functionality for closing the cart using cancel button
   function cancelHandler() {
     setCancelCart(false);
+    dispatch(uiActions.toggle());
+  }
+
+  // dispatch to clear all items in cart
+  function clearCartHandler() {
+    dispatch(cartActions.clearCart());
+  }
+
+  // dispatching actions for checking out of the cart
+  function submitCartHandler() {
+    setCancelCart(false);
+    dispatch(uiActions.showCheckOut());
   }
 
   return (
@@ -25,6 +42,7 @@ function CartItems() {
             </button>
           </div>
           <h2> Cart Items</h2>
+          {/* conditional remdering if cart is empty */}
           {emptyCart && (
             <p className={styles.p}>
               Cart Empty <br />
@@ -45,6 +63,23 @@ function CartItems() {
               />
             ))}
           </ul>
+          {/* buttons for if items is in the cart */}
+          {!emptyCart && (
+            <div className={styles.flexButton}>
+              <button
+                onClick={submitCartHandler}
+                className={styles["check-out"]}
+              >
+                Check Out
+              </button>
+              <button
+                onClick={clearCartHandler}
+                className={styles["clear-cart"]}
+              >
+                Clear Cart
+              </button>
+            </div>
+          )}
         </div>
       )}
     </div>
