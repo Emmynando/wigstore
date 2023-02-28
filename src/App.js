@@ -30,15 +30,13 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    // if (cartSelector.change) {
+    // }
     dispatch(fetchCartData());
   }, [dispatch]);
 
   // effect for sending items to firebase
   useEffect(() => {
-    // if (initial) {
-    //   initial = false;
-    //   return;
-    // }
     dispatch(cartData(cartSelector));
   }, [cartSelector, dispatch]);
 

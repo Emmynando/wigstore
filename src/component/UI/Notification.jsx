@@ -1,6 +1,7 @@
+import styles from "./Notification.module.css";
 function Notification(props) {
   return (
-    <div>
+    <div className={styles.notif}>
       <p> {props.message}</p>
     </div>
   );

@@ -8,7 +8,7 @@ const uiSlice = createSlice({
       state.showCart = !state.showCart;
     },
     showNotification(state, action) {
-      state.message = action.payload.message;
+      state.notification = { message: action.payload?.message };
     },
     showCheckOut(state) {
       state.checkOutz = !state.checkOutz;
