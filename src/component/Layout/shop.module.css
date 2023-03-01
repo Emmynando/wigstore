@@ -74,6 +74,7 @@ button .iconz {
     width: 200px;
     height: 200px;
     position: relative;
+    white-space: normal;
   }
 
   .item-container img {
@@ -84,7 +85,7 @@ button .iconz {
   }
 
   .item-container h2 {
-    font-size: 16px;
+    font-size: 14px;
     text-align: center;
   }
 
@@ -107,6 +108,7 @@ button .iconz {
     width: 200px;
     height: 200px;
     position: relative;
+    white-space: normal;
   }
 
   .item-container img {
@@ -117,7 +119,7 @@ button .iconz {
   }
 
   .item-container h2 {
-    font-size: 16px;
+    font-size: 14px;
     text-align: center;
   }
 

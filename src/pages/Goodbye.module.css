@@ -7,6 +7,12 @@
   text-align: center;
 }
 
+.goodbye .cart-bag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .goodbye h1 {
   margin: 4rem 0;
 }
@@ -16,7 +22,9 @@
 }
 
 .goodbye button {
+  padding: 0.5rem;
   box-shadow: 0 4px 4px 2px rgb(0, 0, 0, 0.24);
+  margin: 0 auto;
 }
 
 .goodbye button:active {

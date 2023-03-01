@@ -33,7 +33,9 @@ function OverlayModal() {
         <p>
           Total Amount: <span className={classes.price}>${totalAmount}</span>
         </p>
-        <button onClick={submitHandler}>Complete</button>
+        <button onClick={submitHandler} className={classes.btn}>
+          Complete
+        </button>
       </div>
     )
   );
