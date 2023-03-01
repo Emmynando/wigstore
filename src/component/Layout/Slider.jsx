@@ -22,14 +22,14 @@ function Slider() {
   const [imageIndex, setImageIndex] = useState(0);
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
+    const timeout = setInterval(() => {
       if (imageIndex >= 3) {
         return setImageIndex(0);
       }
       setImageIndex(imageIndex + 1);
     }, 5000);
 
-    return () => clearTimeout(timeout);
+    return () => clearInterval(timeout);
   }, [imageIndex]);
 
   return (

@@ -7,8 +7,8 @@
 }
 
 .discount h3 {
-  text-align: right;
   animation: transform 40s infinite;
+  text-align: right;
 }
 
 @keyframes transform {
@@ -23,7 +23,9 @@
 nav {
   background-color: pink;
   display: flex;
-  width: 100vw;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
   position: sticky;
 }
 
@@ -63,12 +65,21 @@ button {
     max-height: 10%;
   }
   nav {
-    min-width: 100%;
+    width: 115%;
     padding: 0 0.5rem;
+    right: 0;
   }
 
   .discount h3 {
     font-size: 14px;
     white-space: nowrap;
+  }
+  .icon {
+    width: 1.3rem;
+    height: 1.3rem;
+    margin-right: 0.4rem;
+  }
+  button {
+    padding: 0.2rem;
   }
 }

@@ -125,7 +125,7 @@ const SHOP_DATA = [
 function ShopItem() {
   return (
     <div>
-      <h3> Latest Arrival</h3>
+      <h3 className={classes.h3}> Latest Arrival</h3>
       <div className={classes["shop-container"]}>
         {SHOP_DATA.map((shopData) => {
           return (
